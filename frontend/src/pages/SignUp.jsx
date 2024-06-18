@@ -18,7 +18,7 @@ export const SignUp = () => {
                     username:username,
                     password:password,
                 });
-                const res = await axios.post('http://localhost:3000/api/v1/user/signup', json, {
+                const res = await axios.post('https://payments-app-backend-three.vercel.app/api/v1/user/signup', json, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
