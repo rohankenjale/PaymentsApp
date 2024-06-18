@@ -5,7 +5,7 @@ const mainRouter = require('./routes/index')
 const app = express();
 app.use(cors(
     {
-    origin : ["https://payments-app-frontend.vercel.app/"]
+    origin : "https://payments-app-frontend.vercel.app/"
     }
 ));
 app.use(express.json());
