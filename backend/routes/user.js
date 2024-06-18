@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const jwt = require("jsonwebtoken");
 const { User,Account } = require('../db');
-const { JWT_SECRET } = require('../config');
+require('dotenv').config()
 const authMiddleware = require('../middleware');
 const router = express.Router();
 
@@ -18,7 +18,7 @@ router.post('/signup',async (req,res)=>{
         userId,
         balance: Math.floor(1 + Math.random() * 10000)
     })
-    const token = jwt.sign({ userId }, JWT_SECRET)
+    const token = jwt.sign({ userId },process.env.JWT_SECRET)
     res.json({
         message: 'User created successfully',
         token: token
@@ -38,7 +38,7 @@ router.post('/signin', async (req,res)=>{
     }
     const token = jwt.sign({
         userId: alreadyUser._id
-    }, JWT_SECRET)
+    }, process.env.JWT_SECRET)
     res.json({
         token : token
     })

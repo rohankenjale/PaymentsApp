@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const jwt = require("jsonwebtoken");
 const { User, Account } = require('../db');
-const { JWT_SECRET } = require('../config');
 const authMiddleware = require('../middleware');
 const router = express.Router();
 
