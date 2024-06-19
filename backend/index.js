@@ -8,10 +8,17 @@ app.use(cors({
     methods: ['GET', 'POST', 'PUT', 'PATCH'],
     credentials: true,
   }));
-app.options('*', cors())
+app.options('*', cors(
+    {
+        origin: [
+          "*"    ],
+        methods: ['GET', 'POST', 'PUT', 'PATCH'],
+        credentials: true,
+      }
+))
 app.use(express.json());
 app.use('/api/v1',mainRouter)
 
-app.listen(3000,()=>{
+app.listen(8080,()=>{
     console.log(' listening on http://localhost:3000')
 })
