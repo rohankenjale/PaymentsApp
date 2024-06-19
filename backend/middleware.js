@@ -14,10 +14,4 @@ const authMiddleware = (req,res,next)=>{
     }
     
 }
-
-const corsMiddleware = (req,res,next)=>{
-    req.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-}
-
-module.exports = {authMiddleware,corsMiddleware};
+module.exports = authMiddleware;

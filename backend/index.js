@@ -1,7 +1,6 @@
 const cors = require('cors')
 const express = require("express");
 const mainRouter = require('./routes/index')
-const corsMiddleware = require('./middleware')
 const app = express();
 app.use(cors());
 app.enableCors({
@@ -10,7 +9,6 @@ app.enableCors({
     methods: ['GET', 'POST', 'PUT', 'PATCH'],
     credentials: true,
   });
-app.use(corsMiddleware)
 app.use(express.json());
 app.use('/api/v1',mainRouter)
 
