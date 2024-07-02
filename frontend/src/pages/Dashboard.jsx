@@ -11,12 +11,12 @@ export const Dashboard = () => {
     const navigate = useNavigate()
     const getUsers = async ()=>{
 
-        const res = await axios.get('https://payments-app-backend-three.vercel.app/api/v1/user/users?filter='+filter,{
+        const res = await axios.get('https://paymentsapp-backend.onrender.com/api/v1/user/users?filter='+filter,{
             headers : {
                 Authorization: "Bearer " + localStorage.getItem("token")
             }
         })
-        const balres = await axios.get('https://payments-app-backend-three.vercel.app/api/v1/account/balance',{
+        const balres = await axios.get('https://paymentsapp-backend.onrender.com/api/v1/account/balance',{
             headers: {
                 Authorization: "Bearer " + localStorage.getItem("token")
             }
@@ -46,7 +46,7 @@ export const Dashboard = () => {
             onChange={(e)=>{setFilter(e.target.value)}}
         />
         <button onClick={async ()=>{
-            const res = await axios.get('https://payments-app-backend-three.vercel.app/api/v1/user/users?filter='+filter)
+            const res = await axios.get('https://paymentsapp-backend.onrender.com/api/v1/user/users?filter='+filter)
             console.log(res.data.user)
             setData(res.data.user)
         }}

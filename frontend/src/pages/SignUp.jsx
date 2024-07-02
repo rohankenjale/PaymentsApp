@@ -18,9 +18,13 @@ export const SignUp = () => {
                     username:username,
                     password:password,
                 });
-                const res = await axios.post('https://payments-app-backend-three.vercel.app/api/v1/user/signup', json, {
+                const res = await axios.post('https://paymentsapp-backend.onrender.com/api/v1/user/signup', json, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    "Access-Control-Allow-Origin" : "*",
+                    "Access-Control-Allow-Credentials": "true",
+                    'Content-Type': 'application/json',
+                    "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT" ,
+                    "Access-Control-Allow-Headers" :"X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
                 }
                 });
             localStorage.setItem("token",res.data.token)

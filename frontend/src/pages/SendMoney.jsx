@@ -24,7 +24,7 @@ export const SendMoney = () => {
       </div>
       <button onClick={(e)=>{
         e.preventDefault(); 
-        const res = axios.post('https://payments-app-backend-three.vercel.app/api/v1/account/transfer',{
+        const res = axios.post('https://paymentsapp-backend.onrender.com/api/v1/account/transfer',{
             to:id,
             amount
                 } ,{
