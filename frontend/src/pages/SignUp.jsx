@@ -71,7 +71,7 @@ export const SignUp = () => {
             <input value={username} onChange={(val)=>{ setUsername(val.target.value); setValidationErrors({ ...validationErrors, username: null }); }} placeholder="username" className="w-full bg-transparent border-2 border-gray-300 p-2 rounded-lg text-white"/>
             {validationErrors.username && <span className="text-red-500 text-xs">{validationErrors.username._errors[0]}</span>}
           </div>
-          <div className="my-2">
+          <div className="">
             <div className="py-1">
               <label htmlFor="" className="text-white font-semibold">Password</label>
             </div>
