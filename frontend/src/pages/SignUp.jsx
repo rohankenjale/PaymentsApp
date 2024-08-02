@@ -45,47 +45,70 @@ export const SignUp = () => {
       setError(error.response?.data?.message || 'Signup failed');
     };
   }
-   return <div className="bg-slate-900 h-screen flex justify-center">
-      <div className="  flex flex-col justify-center">
-      <form className=" bg-slate-800  p-10 rounded-3xl" onSubmit={(e) => { e.preventDefault(); handleSignUp()}}>
-          <div className="text-white font-extrabold text-3xl text-center">
-            Sign Up
-          </div>
-          <div className="text-white text-center py-2">
-            Enter your information to create your<br></br>account
-          </div>
-          <div className="my-2">
-            <div className="py-1"><label htmlFor="" className="text-white font-semibold">First Name</label></div>
-            <input value={firstname} onChange={(val)=>{ setFirstname(val.target.value); setValidationErrors({ ...validationErrors, firstname: null });}} placeholder="firstname" className="w-full bg-transparent border-2 border-gray-300 p-2 rounded-lg text-white"/>
-            {validationErrors.firstname && <span className="text-red-500 text-xs">{validationErrors.firstname._errors[0]}</span>}
-          </div>
-          <div className="my-2">
-            <div className="py-1">
-              <label htmlFor="" className="text-white font-semibold">Last Name</label>
+
+  return (
+    <div className="relative flex items-center justify-center min-h-screen bg-[#080710]">
+      <div className="absolute inset-0">
+        <div className="absolute w-52 h-52 bg-gradient-to-r from-[#1845ad] to-[#23a2f6] rounded-full -left-20 -top-20"></div>
+        <div className="absolute w-32 h-32 bg-gradient-to-r from-[#ff512f] to-[#f09819] rounded-tl-full -right-0 -bottom-0"></div>
+      </div>
+      <div className="relative z-10 flex justify-center items-center min-h-screen">
+        <form className="w-96 bg-white bg-opacity-[0.13] p-10 rounded-2xl backdrop-blur-md border-2 border-white border-opacity-10 shadow-2xl" onSubmit={(e) => { e.preventDefault(); handleSignUp()}}>
+          <h3 className="text-2xl font-semibold text-center text-white">Sign Up</h3>
+          <div className="mt-8 space-y-6">
+            <div>
+              <label htmlFor="firstname" className="block text-white font-medium">First Name</label>
+              <input 
+                value={firstname} 
+                onChange={(val)=>{ setFirstname(val.target.value); setValidationErrors({ ...validationErrors, firstname: null });}} 
+                placeholder="First name" 
+                id="firstname" 
+                className="w-full mt-2 p-2 bg-white bg-opacity-[0.07] rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <div className="text-red-500 text-sm mt-1">{validationErrors.firstname && validationErrors.firstname._errors[0]}</div>
             </div>
-            <input value={lastname} onChange={(val) => { setLastname(val.target.value); setValidationErrors({ ...validationErrors, lastname: null }); }} placeholder="lastname" className="w-full bg-transparent border-2 border-gray-300 p-2 rounded-lg text-white"/>
-            {validationErrors.lastname && <span className="text-red-500 text-xs ">{validationErrors.lastname._errors[0]}</span>}
-          </div>
-          <div className="my-2">
-            <div className="py-1"><label htmlFor="" className="text-white font-semibold">User Name</label></div>
-            <input value={username} onChange={(val)=>{ setUsername(val.target.value); setValidationErrors({ ...validationErrors, username: null }); }} placeholder="username" className="w-full bg-transparent border-2 border-gray-300 p-2 rounded-lg text-white"/>
-            {validationErrors.username && <span className="text-red-500 text-xs">{validationErrors.username._errors[0]}</span>}
-          </div>
-          <div className="">
-            <div className="py-1">
-              <label htmlFor="" className="text-white font-semibold">Password</label>
+            <div>
+              <label htmlFor="lastname" className="block text-white font-medium">Last Name</label>
+              <input 
+                value={lastname} 
+                onChange={(val) => { setLastname(val.target.value); setValidationErrors({ ...validationErrors, lastname: null }); }} 
+                placeholder="Last name" 
+                id="lastname" 
+                className="w-full mt-2 p-2 bg-white bg-opacity-[0.07] rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <div className="text-red-500 text-sm mt-1">{validationErrors.lastname && validationErrors.lastname._errors[0]}</div>
             </div>
-            <input value={password} onChange={(val)=>{ setPassword(val.target.value); setValidationErrors({ ...validationErrors, password: null }); }} placeholder="password" className="w-full bg-transparent border-2 border-gray-300 p-2 rounded-lg text-white"/>
-            {validationErrors.password && <span className="text-red-500 text-xs">{validationErrors.password._errors[0]}</span>}
-          </div>
-          <button type="submit" className="my-3.5 w-full text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign Up</button>
-          {error && <div className="text-red-500 text-center text-xs">{error}</div>}
-          <div className="text-white text-center">
-            Already have an account? Login
+            <div>
+              <label htmlFor="username" className="block text-white font-medium">User Name</label>
+              <input 
+                value={username} 
+                onChange={(val)=>{ setUsername(val.target.value); setValidationErrors({ ...validationErrors, username: null }); }} 
+                placeholder="Username" 
+                id="username" 
+                className="w-full mt-2 p-2 bg-white bg-opacity-[0.07] rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <div className="text-red-500 text-sm mt-1">{validationErrors.username && validationErrors.username._errors[0]}</div>
+            </div>
+            <div>
+              <label htmlFor="password" className="block text-white font-medium">Password</label>
+              <input 
+                type="password" 
+                value={password} 
+                onChange={(val)=>{ setPassword(val.target.value); setValidationErrors({ ...validationErrors, password: null }); }} 
+                placeholder="Password" 
+                id="password" 
+                className="w-full mt-2 p-2 bg-white bg-opacity-[0.07] rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+              <div className="text-red-500 text-sm mt-1">{validationErrors.password && validationErrors.password._errors[0]}</div>
+            </div>
+            <button type="submit" className="w-full py-3 mt-4 text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500">Sign Up</button>
+            <div className="text-red-500 text-center text-sm mt-4">{error}</div>
+            <div className="text-center text-white mt-4">
+              Already have an account? <a href="/signin" className="text-blue-500 hover:underline">Login</a>
+            </div>
           </div>
         </form>
       </div>
     </div>
-
-
+  );
 }

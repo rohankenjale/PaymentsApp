@@ -31,7 +31,7 @@ export const Dashboard = () => {
     }, [])
 
     
-    return <div className="h-screen bg-slate-900">
+    return <div className=" flex flex-col max-h-full bg-slate-900">
     <div className="bg-slate-700 flex justify-between border-b-4 border-slate-500 p-3">
          <div className="text-white font-bold text-3xl text-center">Payments App</div>
          <div className="text-white text-center py-2"> Hello, {firstname} </div>
